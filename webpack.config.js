@@ -1,24 +1,54 @@
-var path = require('path');
-var htmlWebpackPlugin = require('html-webpack-plugin');
-var webpack = require('webpack');
+const webpack = require('webpack');
+const path = require('path');
+const htmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-	entry: './src/index.js',
+  // We need both the js and sass entry points
+	entry: ['./src/index.js', './src/sass/index.scss'],
 	output: {
 		path: path.resolve(__dirname, 'dist'),
-		filename: 'index_bundle.js',
+		filename: 'js/app.js',
 		publicPath: '/'
 	},
 	module: {
 		rules: [
-			{ test: /\.(js)$/, use: 'babel-loader' },
-			{ test: /\.css$/, use: [ 'style-loader', 'css-loader']}
-		]
+			{ test: /\.(js)$/, use:
+        {
+          loader: 'babel-loader',
+          options: {
+            presets: ['react', 'env'],
+          }
+        }
+      },
+			{ test: /\.scss$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [{
+            	loader: 'css-loader'
+	          },
+	          {
+	            loader:
+	              'sass-loader'
+          }]
+        })
+      }
+    ]
 	},
-	devServer: {
-		historyApiFallback: true,
-	},
-	plugins: [ new htmlWebpackPlugin({
-		template: './src/index.html'
-	})]
+  devServer: {
+    historyApiFallback: true,
+  },
+  devtool: 'source-map',
+	plugins: [
+        new ExtractTextPlugin({
+            filename: 'css/styles.css',
+        }),
+        new htmlWebpackPlugin({
+          template: './src/index.html'
+        }),
+        new CleanWebpackPlugin(
+          ['dist']
+        ),
+    ]
 }

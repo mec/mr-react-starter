@@ -1,11 +1,18 @@
-var React = require('React');
+import React from 'react';
+import Message from '../components/message';
 
-function App(props) {
-		return (
-			<div>
-				<h1>MR React Starter</h1>
-			</div>
-		)
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      message: 'hello world.'
+    };
+  }
+  render() {
+    return (
+      <Message message={this.state.message}/>
+    );
+  }
 }
 
-module.exports = App
+export default App;

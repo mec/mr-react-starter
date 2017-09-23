@@ -1,3 +1,3 @@
-# MR React Starter
+# React Starter
 
-My first attempt at getting a basic React prject off the ground.
+This a little project to build a simple React base web project.
