@@ -5,7 +5,6 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-  // We need both the js and sass entry points
 	entry: ['./src/index.js', './src/sass/index.scss'],
 	output: {
 		path: path.resolve(__dirname, 'dist'),
@@ -39,7 +38,7 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
   },
-  devtool: 'source-map',
+  devtool: 'inline-source-map',
 	plugins: [
         new ExtractTextPlugin({
             filename: 'css/styles.css',

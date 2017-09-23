@@ -1,5 +1,5 @@
 {
-  "name": "React Starter",
+  "name": "react-starter",
   "version": "0.0.2",
   "description": "Super simple React starter",
   "main": "index.js",
@@ -16,7 +16,6 @@
   },
   "author": "Mec Rawlings <mec.rawlings@gmail.com>",
   "dependencies": {
-    "md5": "^2.2.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1"
   },
