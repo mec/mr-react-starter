@@ -47,5 +47,23 @@
     "style-loader": "^0.18.2",
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.9.1"
+  },
+  "eslintConfig": {
+    "extends": "semistandard",
+    "plugins": [
+      "react"
+    ],
+    "settings": {
+      "react": {
+        "createClass": "createReactClass",
+        "pragma": "React",
+        "version": "16.0",
+        "flowVersion": "0.53"
+      }
+    },
+    "rules": {
+      "react/jsx-uses-react": "error",
+      "react/jsx-uses-vars": "error"
+    }
   }
 }
