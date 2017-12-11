@@ -8,7 +8,9 @@ class App extends React.Component {
       message: 'hello world.'
     };
   }
-  test = () => 10;
+  handleThing = () => {
+    console.log('thing has been handled.');
+  }
   render() {
     return <Message message={this.state.message} />;
   }
