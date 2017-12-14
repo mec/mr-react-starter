@@ -22,7 +22,8 @@
   "author": "Mec Rawlings <mec.rawlings@gmail.com>",
   "dependencies": {
     "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react-dom": "^16.0.0",
+    "styled-components": "^2.2.4"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -61,7 +62,6 @@
     "env": {
       "es6": true,
       "mocha": true
-
     },
     "parser": "babel-eslint",
     "rules": {
